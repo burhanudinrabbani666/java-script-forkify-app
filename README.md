@@ -41,9 +41,9 @@ to make it easier to learn the material you want to study and review the progres
 
 ## Important resource of this project
 
-| No. | Topic         | Link                                       |
-| --- | ------------- | ------------------------------------------ |
-| 1   | Udemy Courses | []()                                       |
-| 2   | Forkfy        | [Forkify Web](https://forkify-v2.jonas.io) |
-| 2   | Jonas API     | [](https://forkify-v2.jonas.io)            |
-| 3   | Node.js       | []()                                       |
+| No. | Topic         | Link                                        |
+| --- | ------------- | ------------------------------------------- |
+| 1   | Udemy Courses | []()                                        |
+| 2   | Forkfy        | [Forkify Web](https://forkify-v2.jonas.io)  |
+| 2   | Jonas API     | [Forkify API](https://forkify-api.jonas.io) |
+| 3   | Node.js       | []()                                        |
