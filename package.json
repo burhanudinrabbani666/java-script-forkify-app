@@ -1,0 +1,25 @@
+{
+  "name": "java-script-forkify-app",
+  "version": "1.0.0",
+  "description": "for study",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burhanudinrabbani666/java-script-forkify-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burhanudinrabbani666/java-script-forkify-app/issues"
+  },
+  "homepage": "https://github.com/burhanudinrabbani666/java-script-forkify-app#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.3",
+    "parcel": "^2.16.3",
+    "sass": "^1.97.0"
+  }
+}
