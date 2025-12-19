@@ -16,7 +16,7 @@ to make it easier to learn the material you want to study and review the progres
 | 1   | [Project Planning 1](./notes/01-project-panning1.md)                             | ✅     |              |
 | 2   | [Loading Recipe from API](./notes/02-loading-recipe-from-api.md)                 | ✅     |              |
 | 3   | [Rendering the Recipe](./notes/03-rendering-the-recipe.md)                       | ✅     | ❗ Important |
-| 4   | [Listening for Load](./notes/04-listening-for-load.md)                           | ⏳     |              |
+| 4   | [Listening for Load](./notes/04-listening-for-load.md)                           | ✅     | ❗ Important |
 | 5   | [The MVC Architecture](./notes/05-the-mvc-arcihtecture.md)                       | ⏳     |              |
 | 6   | [Refactoring MVC](./notes/06-refactoring-mvc.md)                                 | ⏳     |              |
 | 7   | [Helper and Configurations](./notes/07-helper-and-configurations.md)             | ⏳     |              |
