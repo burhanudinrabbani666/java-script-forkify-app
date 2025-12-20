@@ -1,6 +1,6 @@
 import icons from "url:../../img/icons.svg";
-import Fraction from "fractional";
-console.log(Fraction);
+import Fraction from "fractional.js";
+
 class RecipeView {
   #parentElement = document.querySelector(".recipe");
   #data;
@@ -11,10 +11,6 @@ class RecipeView {
     const markup = this.#generateMarkup();
     this.#clear();
     this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  #clear() {
-    this.#parentElement.innerHTML = "";
   }
 
   renderSpinner = function () {
@@ -28,6 +24,10 @@ class RecipeView {
     this.#parentElement.innerHTML = "";
     this.#parentElement.insertAdjacentHTML("afterbegin", markup);
   };
+
+  #clear() {
+    this.#parentElement.innerHTML = "";
+  }
 
   #generateMarkup() {
     return `
@@ -89,20 +89,7 @@ class RecipeView {
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
             ${this.#data.ingredients
-              .map((ingredient) => {
-                return `
-              <li class="recipe__ingredient">
-              <svg class="recipe__icon">
-                <use href="${icons}#icon-check"></use>
-              </svg>
-              <div class="recipe__quantity">${ingredient.quantity}</div>
-              <div class="recipe__description">
-                <span class="recipe__unit">${ingredient.unit}</span>
-                ${ingredient.description}
-              </div>
-            </li>
-            `;
-              })
+              .map(this.#generatedMarkupIngredient)
               .join(" ")}
 
           </ul>
@@ -130,6 +117,25 @@ class RecipeView {
         </div>
         
         `;
+  }
+
+  #generatedMarkupIngredient(ingredient) {
+    return `
+        <li class="recipe__ingredient">
+          <svg class="recipe__icon">
+            <use href="${icons}#icon-check"></use>
+          </svg>
+          <div class="recipe__quantity">${
+            ingredient.quantity
+              ? new Fraction(ingredient.quantity).toString()
+              : ingredient.quantity
+          }</div>
+          <div class="recipe__description">
+            <span class="recipe__unit">${ingredient.unit}</span>
+            ${ingredient.description}
+          </div>
+        </li>
+            `;
   }
 }
 

@@ -14,6 +14,7 @@ export const loadRecipe = async function (id) {
 
     // rename Object
     const { recipe } = data.data;
+
     state.recipe = {
       id: recipe.id,
       title: recipe.title,

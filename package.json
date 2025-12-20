@@ -26,6 +26,7 @@
     "@babel/core": "^7.28.5",
     "core-js": "^3.47.0",
     "fractional": "^1.0.0",
+    "fractional.js": "^1.0.0",
     "regenerator-runtime": "^0.14.1"
   }
 }
