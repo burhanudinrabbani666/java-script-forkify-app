@@ -4,11 +4,15 @@ import { getJSON } from "./helper";
 
 export const state = {
   recipe: {},
+  search: {
+    query: "",
+    result: [],
+  },
 };
 
 export const loadRecipe = async function (id) {
   try {
-    const data = await getJSON(`${API_URL}/${id}`);
+    const data = await getJSON(`${API_URL}${id}`);
 
     // rename Object
     const { recipe } = data.data;
@@ -23,6 +27,26 @@ export const loadRecipe = async function (id) {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
     };
+  } catch (error) {
+    console.log(`${error} 💥💥💥💥💥`);
+    throw error;
+  }
+};
+
+export const loadSearchResults = async function (query) {
+  try {
+    state.search.query = query;
+    const data = await getJSON(`${API_URL}?search=${query}`);
+    console.log(data);
+
+    state.search.result = data.data.recipes.map((recipe) => {
+      return {
+        id: recipe.id,
+        title: recipe.title,
+        publisher: recipe.publisher,
+        image: recipe.image_url,
+      };
+    });
   } catch (error) {
     console.log(`${error} 💥💥💥💥💥`);
     throw error;
