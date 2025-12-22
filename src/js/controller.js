@@ -17,6 +17,7 @@ import "regenerator-runtime/runtime";
 
 ///////////////////////////////////////
 
+// Rendering recipe
 const controlRecipes = async function (params) {
   try {
     const id = window.location.hash.slice(1);
@@ -31,11 +32,15 @@ const controlRecipes = async function (params) {
 
     // 2. Rendering recipe
     recipeView.render(model.state.recipe);
+
+    //TEST
+    controlServing(8);
   } catch (error) {
     recipeView.renderError();
   }
 };
 
+// Rendering Recipe List
 const controlSearchResult = async function () {
   try {
     // 1) Get Search Quey
@@ -57,6 +62,7 @@ const controlSearchResult = async function () {
   }
 };
 
+//Rendering Pagination
 const controlPagination = function (goToPage) {
   // 3) Render new Result
   // resultView.render(model.state.search.result);
@@ -66,10 +72,19 @@ const controlPagination = function (goToPage) {
   paginationView.render(model.state.search);
 };
 
+const controlServing = function () {
+  // Update the recipe serving (in State)
+  model.updateServings(6);
+
+  // Update the recipe view
+  recipeView.render(model.state.recipe);
+};
+
 // Publisher - Subscriber pattern
 const init = function () {
   recipeView.addHandleRender(controlRecipes);
   searchViews.addHandlerSearc(controlSearchResult);
   paginationView.addHandlerClick(controlPagination);
+  // controlServing();
 };
 init();

@@ -1,6 +1,7 @@
 import { async } from "regenerator-runtime";
 import { API_URL, RES_PER_PAGE } from "./config";
 import { getJSON } from "./helper";
+import { stat } from "@babel/core/lib/gensync-utils/fs";
 
 export const state = {
   recipe: {},
@@ -12,6 +13,7 @@ export const state = {
   },
 };
 
+// Load for spesific Menu
 export const loadRecipe = async function (id) {
   try {
     const data = await getJSON(`${API_URL}${id}`);
@@ -35,6 +37,7 @@ export const loadRecipe = async function (id) {
   }
 };
 
+// Load for rendering all menu
 export const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
@@ -55,6 +58,7 @@ export const loadSearchResults = async function (query) {
   }
 };
 
+// To get result when using pagination
 export const getSearchResultPage = function (page = state.search.page) {
   state.search.page = page;
 
@@ -62,4 +66,14 @@ export const getSearchResultPage = function (page = state.search.page) {
   const end = page * state.search.resultPerPage; // 9
 
   return state.search.result.slice(start, end);
+};
+
+// To Update Servings
+export const updateServings = function (newServing) {
+  state.recipe.ingredients.forEach((ingredients) => {
+    ingredients.quantity =
+      (ingredients.quantity * newServing) / state.recipe.servings;
+  });
+
+  state.recipe.servings = newServing;
 };

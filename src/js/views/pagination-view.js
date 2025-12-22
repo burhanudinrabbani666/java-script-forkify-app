@@ -22,7 +22,6 @@ class PaginationView extends View {
       this._data.result.length / this._data.resultPerPage
     );
 
-    console.log(numPages);
     // Page 1, and there are another page
     if (currPage === 1 && numPages > 1) {
       return `
@@ -36,6 +35,7 @@ class PaginationView extends View {
        </button>
       `;
     }
+
     // Last Page
     if (currPage === numPages && numPages > 1) {
       return `
@@ -49,6 +49,7 @@ class PaginationView extends View {
       </button>
       `;
     }
+
     //Other Page
     if (currPage < numPages) {
       return `
