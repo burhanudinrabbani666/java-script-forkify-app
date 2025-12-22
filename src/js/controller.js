@@ -2,6 +2,7 @@ import * as model from "./model";
 import recipeView from "./views/recipe-view";
 import searchViews from "./views/search-views";
 import resultView from "./views/result-view";
+import paginationView from "./views/pagination-view";
 
 ///
 import "core-js/stable";
@@ -47,16 +48,23 @@ const controlSearchResult = async function () {
 
     // 3) Render Results
     // resultView.render(model.state.search.result);
-    resultView.render(model.getSearchResultPage());
+    resultView.render(model.getSearchResultPage(6));
+
+    // 4) Render Initial Pagination
+    paginationView.render(model.state.search);
   } catch (error) {
     console.log(error);
   }
 };
 
-controlSearchResult();
+const controlPagination = function () {
+  console.log(`Pg Controller`);
+};
+
 // Publisher - Subscriber pattern
 const init = function () {
   recipeView.addHandleRender(controlRecipes);
   searchViews.addHandlerSearc(controlSearchResult);
+  paginationView.addHandlerClick(controlPagination);
 };
 init();
