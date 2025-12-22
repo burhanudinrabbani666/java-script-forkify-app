@@ -48,7 +48,7 @@ const controlSearchResult = async function () {
 
     // 3) Render Results
     // resultView.render(model.state.search.result);
-    resultView.render(model.getSearchResultPage(6));
+    resultView.render(model.getSearchResultPage(1));
 
     // 4) Render Initial Pagination
     paginationView.render(model.state.search);
@@ -57,8 +57,13 @@ const controlSearchResult = async function () {
   }
 };
 
-const controlPagination = function () {
-  console.log(`Pg Controller`);
+const controlPagination = function (goToPage) {
+  // 3) Render new Result
+  // resultView.render(model.state.search.result);
+  resultView.render(model.getSearchResultPage(goToPage));
+
+  // 4) Render Initial Pagination
+  paginationView.render(model.state.search);
 };
 
 // Publisher - Subscriber pattern
