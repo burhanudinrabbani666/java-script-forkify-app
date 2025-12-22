@@ -7,9 +7,9 @@ import resultView from "./views/result-view";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 // NEW API URL (instead of the one shown in the video)
 // https://forkify-api.jonas.io
@@ -46,7 +46,8 @@ const controlSearchResult = async function () {
     await model.loadSearchResults(query);
 
     // 3) Render Results
-    resultView.render(model.state.search.result);
+    // resultView.render(model.state.search.result);
+    resultView.render(model.getSearchResultPage());
   } catch (error) {
     console.log(error);
   }
